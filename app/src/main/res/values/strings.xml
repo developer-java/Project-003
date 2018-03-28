@@ -1,0 +1,50 @@
+<resources>
+
+    <string name="app_name">Достопримечательности Казахстана</string>
+    <string name="title_activity_details">Достопримечательности Казахстана</string>
+
+    <string name="transition_name_name">transition:NAME</string>
+    <string name="transition_name_circle">transition:CIRCLE</string>
+    <string name="transition_name_phone">transition:DESC</string>
+    <string name="title_activity_sight">SightActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="view_region">Посмотреть по регионам</string>
+    <string name="view_all">Посмотреть все</string>
+    <string name="contact">Контакты</string>
+    <string name="about">О программе</string>
+    <string name="exit">Выход</string>
+    <string name="ratting">Рейтинг</string>
+    <string name="isPayment">Вход(посещение)</string>
+    <string name="price">Стоимость входа(посещении)</string>
+    <string name="workTime">Рабочее время</string>
+    <string name="address">Адресс</string>
+    <string name="coments">Комментарии</string>
+    <string name="pleasWrite">Напишите свое мнение</string>
+    <string name="email">Электронная почта</string>
+    <string name="aboutTitle1">Информация о полезности</string>
+    <string name="aboutTitle2">Информация о приложении</string>
+    <string name="aboutText">
+        \t\t\tЭто приложение предназначена для иностранных туристов посетивших Казахстан, приложение поможет легко находить интерестные места и информацию о них.\n
+        На территории Казахстана расположено немало и архитектурных памятников. Обязательно посетите Отрар, развалины которого хранят следы завоевания Чингисхана, мавзолей суфийского поэта и мистика Ходжи Ахмеда Яссави, куда ежегодно приезжают паломники-мусульмане со всего мира. Достопримечательности Казахстана также включают самый знаменитый космодром Байконур, откуда Гагарин совершил первый в истории человечества полет в Космос. Здесь для туристов организуются интересные экскурсии по территории космодрома, можно посетить домики, в которых жили советские космонавты, музей, аллею, посмотреть станции и ракеты.\т
+        \n\nЕсли вы хотите путишествовать то мы знаем куда идти...
+    </string>
+    <string name="aboutTextVersion">
+        Версия приложении: v.1.0.0\n\nАвтор: Мурзакешев Ерлан Мухитович 2018 ©
+    </string>
+    <string name="contactText">
+        Телефон:\t+7(747) 053-87-33\n\n
+        Email:\terlan_murza96@mail.ru\n\n
+    </string>
+    <string name="select_region">Выберите регион</string>
+    <string name="isPayTrue">Платный</string>
+    <string name="isPayFalse">Бесплатный</string>
+    <string name="categoryItem0">Все</string>
+    <string name="categoryItem1">Отель</string>
+    <string name="categoryItem2">Рестораны</string>
+    <string name="categoryItem3">Музей</string>
+    <string name="categoryItem4">Монументы</string>
+    <string name="categoryItem5">Исторические обьекты</string>
+    <string name="categoryItem6">Религиозные объекты</string>
+    <string name="categoryItem7">Зона отдыха</string>
+    <string name="categoryItem8">Санаторий</string>
+</resources>

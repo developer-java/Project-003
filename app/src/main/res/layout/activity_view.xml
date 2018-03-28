@@ -1,0 +1,171 @@
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <LinearLayout android:orientation="vertical" android:padding="5dp" android:layout_width="match_parent" android:layout_height="match_parent">
+            <android.support.v7.widget.CardView
+                    android:elevation="16dp"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <ImageView
+                            android:id="@+id/viewImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp"/>
+                    <TextView
+                            android:textSize="30sp"
+                            android:id="@+id/viewTitle"
+                            android:textStyle="bold"
+                            android:padding="8dp"
+                            android:textColor="#000"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    <TableRow
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent">
+                        <TextView android:textSize="20sp"
+                                  android:padding="8dp"
+                                  android:id="@+id/viewDesc"
+                                  android:layout_height="wrap_content"
+                                  android:layout_width="match_parent"/>
+                    </TableRow>
+                    <TableRow
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent">
+                        <TextView android:textSize="20sp"
+                                  android:padding="8dp"
+                                  android:text="@string/ratting"
+                                  android:textStyle="bold"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"/>
+                        <TextView android:textSize="20sp"
+                                  android:padding="8dp"
+                                  android:text="9/10"
+                                  android:id="@+id/viewRatting"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"/>
+                    </TableRow>
+                    <TableRow
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent">
+                        <TextView android:textSize="20sp"
+                                  android:padding="8dp"
+                                  android:text="@string/isPayment"
+                                  android:textStyle="bold"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"/>
+                        <TextView android:textSize="20sp"
+                                  android:padding="8dp"
+                                  android:id="@+id/viewIsPayment"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"/>
+                    </TableRow>
+                    <TableRow
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent">
+                        <TextView android:textSize="20sp"
+                                  android:padding="8dp"
+                                  android:text="@string/price"
+                                  android:textStyle="bold"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"/>
+                        <TextView android:textSize="20sp"
+                                  android:padding="8dp"
+                                  android:id="@+id/viewPrice"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"/>
+                    </TableRow>
+                    <TableRow
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent">
+                        <TextView android:textSize="20sp"
+                                  android:padding="8dp"
+                                  android:text="@string/contact"
+                                  android:textStyle="bold"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"/>
+                        <TextView android:textSize="20sp"
+                                  android:padding="8dp"
+                                  android:id="@+id/viewContact"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"/>
+                    </TableRow>
+                    <TableRow
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent">
+                        <TextView android:textSize="20sp"
+                                  android:padding="8dp"
+                                  android:text="@string/workTime"
+                                  android:textStyle="bold"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"/>
+                        <TextView android:textSize="20sp"
+                                  android:padding="8dp"
+                                  android:id="@+id/viewWorkTime"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"/>
+                    </TableRow>
+                    <TableRow
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent">
+                        <TextView android:textSize="20sp"
+                                  android:padding="8dp"
+                                  android:text="@string/address"
+                                  android:textStyle="bold"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"/>
+                        <TextView android:textSize="20sp"
+                                  android:padding="8dp"
+                                  android:id="@+id/viewAddress"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"/>
+                    </TableRow>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <TableRow android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView
+                        android:padding="8dp"
+                        android:textSize="18sp"
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:text="@string/coments"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"/>
+            </TableRow>
+            <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:elevation="16dp"
+                    android:id="@+id/comentRecycler"/>
+            <TableRow
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent">
+                <EditText
+                        android:inputType="textMultiLine"
+                        android:hint="@string/pleasWrite"
+                        android:textColor="#e7000000"
+                        android:layout_weight=".2"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent" android:id="@+id/message"/>
+                <ImageButton
+                        android:background="#00ffffff"
+                        android:layout_weight=".8"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:onClick="addComent"
+                        android:scaleType="centerInside"
+                        android:id="@+id/sendComent"
+                        app:srcCompat="@android:drawable/sym_action_chat"/>
+            </TableRow>
+        </LinearLayout>
+    </ScrollView>
+</android.support.design.widget.CoordinatorLayout>

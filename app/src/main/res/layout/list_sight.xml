@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:background="?android:selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:clipToPadding="false"
+        card_view:cardCornerRadius="4dp">
+    <android.support.v7.widget.CardView android:layout_height="wrap_content"
+                                        android:paddingLeft="16dp"
+                                        android:paddingRight="16dp"
+                                        android:background="?android:selectableItemBackground"
+                                        android:clickable="true"
+                                        android:focusable="true"
+                                        android:elevation="20dp"
+                                        android:padding="4dp"
+                                        card_view:cardCornerRadius="4dp"
+                                        android:orientation="vertical"
+                                        android:layout_width="match_parent">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border">
+            <ImageView
+                    android:id="@+id/s_list_image"
+                    android:transitionName="@string/transition_name_circle"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:text="AA"
+                    android:textColor="#fff"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:background="@drawable/cube"
+                    android:layout_centerVertical="true"
+                    android:padding="8dp"
+                    android:layout_alignParentLeft="true"/>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/cube"
+                    android:orientation="vertical">
+
+                <TableRow
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent">
+                    <TextView
+                            android:id="@+id/s_list_title"
+                            android:transitionName="@string/transition_name_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Astana"
+                            android:textStyle="bold"
+                            android:padding="8dp"
+                            android:textColor="#000"
+                            android:textSize="24sp"/>
+                    <TextView
+                            android:id="@+id/s_list_region"
+                            android:transitionName="@string/transition_name_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:paddingRight="8dp"
+                            android:padding="8dp"
+                            android:textColor="#b1000000"
+                            android:textSize="18sp"/>
+                </TableRow>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

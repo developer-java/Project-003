@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="82dp"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:background="@drawable/ripple"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/list_circle"
+        android:transitionName="@string/transition_name_circle"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="AA"
+        android:textColor="#fff"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@drawable/circle"
+        android:layout_centerVertical="true"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_alignParentLeft="true">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/list_circle"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/list_title"
+            android:transitionName="@string/transition_name_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Astana"
+            android:textColor="#000"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:id="@+id/list_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Найдено 5 достопримичательностей"
+            android:transitionName="@string/transition_name_phone"
+            android:textColor="#9f9f9f"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
