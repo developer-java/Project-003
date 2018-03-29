@@ -1,7 +1,7 @@
 <resources>
 
-    <string name="app_name">Достопримечательности Казахстана</string>
-    <string name="title_activity_details">Достопримечательности Казахстана</string>
+    <string name="app_name">Турист KZ</string>
+    <string name="title_activity_details">Турист KZ</string>
 
     <string name="transition_name_name">transition:NAME</string>
     <string name="transition_name_circle">transition:CIRCLE</string>
@@ -39,12 +39,19 @@
     <string name="isPayTrue">Платный</string>
     <string name="isPayFalse">Бесплатный</string>
     <string name="categoryItem0">Все</string>
-    <string name="categoryItem1">Отель</string>
+    <string name="categoryItem1">Отели</string>
     <string name="categoryItem2">Рестораны</string>
     <string name="categoryItem3">Музей</string>
     <string name="categoryItem4">Монументы</string>
     <string name="categoryItem5">Исторические обьекты</string>
     <string name="categoryItem6">Религиозные объекты</string>
-    <string name="categoryItem7">Зона отдыха</string>
+    <string name="categoryItem7">Зоны отдыха</string>
     <string name="categoryItem8">Санаторий</string>
+    <string name="splashLoad">Загрузка...</string>
+    <string name="splashStatus500">Сервер не доступен!</string>
+    <string name="splashStatus0">Вы не подключены к \nинтернету!</string>
+    <string name="splashTesttionConnection">Проверка соединении</string>
+    <string name="splashTesttionConnectionSuccess">Соединение установлено</string>
+    <string name="splashTesttionService">Проверка работоспособности сервисов</string>
+    <string name="splashTesttionServiceSuccess">Успешно!</string>
 </resources>

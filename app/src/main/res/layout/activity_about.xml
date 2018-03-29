@@ -6,6 +6,7 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent"
+        android:background="@drawable/back"
         tools:context="com.example.hp.dip.activity.About">
     <LinearLayout
             android:orientation="vertical"
@@ -14,7 +15,6 @@
         <android.support.v7.widget.Toolbar
                 android:id="@+id/aboutToolbar"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorAccent"
                 android:layout_width="match_parent"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>

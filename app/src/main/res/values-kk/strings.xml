@@ -1,0 +1,55 @@
+<resources>
+
+    <string name="app_name">Турист KZ</string>
+    <string name="title_activity_details">Турист KZ</string>
+
+    <string name="transition_name_name">transition:NAME</string>
+    <string name="transition_name_circle">transition:CIRCLE</string>
+    <string name="transition_name_phone">transition:DESC</string>
+    <string name="title_activity_sight">SightActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="view_region">Аймақтар бойынша қарау</string>
+    <string name="view_all">Барлығын қарау</string>
+    <string name="contact">Байлыныс</string>
+    <string name="about">Бағдарлама туралы</string>
+    <string name="exit">Шығу</string>
+    <string name="ratting">Рейтинг</string>
+    <string name="isPayment">Кіру</string>
+    <string name="price">Кірі құны</string>
+    <string name="workTime">Жұмыс уақыты</string>
+    <string name="address">Адрес</string>
+    <string name="coments">Пікірлер</string>
+    <string name="pleasWrite">Өз пікіріңізді жазыңыз</string>
+    <string name="email">Электрондық почта</string>
+    <string name="aboutTitle1">Бағдарлама максаты және пайдасы</string>
+    <string name="aboutTitle2">Бағдарлама туралы ақпарат</string>
+    <string name="aboutText">
+        \t\t\tБұл бағдарлама шет елден келген қонақтарға арналады, бағдарламада кез келген адам Қазақстан Республикасы бойынша қызықты орындар таба алады!
+    </string>
+    <string name="aboutTextVersion">
+        Бағдарлама нұсқасы: v.1.0.0\n\nАвтор: Мурзакешев Ерлан Мухитович 2018 ©
+    </string>
+    <string name="contactText">
+        Телефон:\t+7(747) 053-87-33\n\n
+        Email:\terlan_murza96@mail.ru\n\n
+    </string>
+    <string name="select_region">Аймақ тандаңыз</string>
+    <string name="isPayTrue">Ақылы</string>
+    <string name="isPayFalse">Тегін</string>
+    <string name="categoryItem0">Барлығы</string>
+    <string name="categoryItem1">Қонак үйлер</string>
+    <string name="categoryItem2">Мейрамханалар</string>
+    <string name="categoryItem3">Мұражайлар</string>
+    <string name="categoryItem4">Ескерткіштер</string>
+    <string name="categoryItem5">Ежелгі объектілер</string>
+    <string name="categoryItem6">Діни объектілер</string>
+    <string name="categoryItem7">Демалыс орталығы</string>
+    <string name="categoryItem8">Санаторилер</string>
+    <string name="splashLoad">Жүктелулер...</string>
+    <string name="splashStatus500">Сервер қол жетімді емес!</string>
+    <string name="splashStatus0">Интернетке қосылмағансыз!</string>
+    <string name="splashTesttionConnection">Қосылымды тексеру</string>
+    <string name="splashTesttionConnectionSuccess">Қосылым орнатылды</string>
+    <string name="splashTesttionService">Қызметтердің жұмысын тексеру</string>
+    <string name="splashTesttionServiceSuccess">Табысты!</string>
+</resources>
