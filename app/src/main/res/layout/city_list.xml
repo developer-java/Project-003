@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:background="@drawable/border"
+              android:padding="8dp"
+              android:layout_height="match_parent">
+    <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+        <TextView
+                android:layout_width="match_parent"
+                android:text="MA"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:id="@+id/cityCircle"
+                android:textColor="#fff"
+                android:gravity="center_vertical|center_horizontal"
+                android:background="@drawable/circle"
+                android:layout_height="match_parent"/>
+    </LinearLayout>
+    <TextView
+            android:text="MAGJAN"
+            android:id="@+id/cityTitle"
+            android:height="50dp"
+            android:textColor="#353535"
+            android:paddingLeft="16dp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textSize="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+</LinearLayout>

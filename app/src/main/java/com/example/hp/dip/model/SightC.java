@@ -4,14 +4,12 @@ import com.example.hp.dip.R;
 import com.example.hp.dip.util.Util;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.List;
-
-public class Sight {
+public class SightC {
     private Long id;
     private String valueRu;
     private String valueKz;
     @JsonIgnore
-    private Region paternId;
+    private City paternId;
     private String imageUrl;
     private String descriptionRu;
     private String descriptionKz;
@@ -57,7 +55,7 @@ public class Sight {
     }
 
     public String getImageUrl() {
-        return Util._API_DOWNLOAD_IMAGE_URL + "name="+imageUrl;
+        return Util._API_DOWNLOAD_IMAGE_URL +"name="+imageUrl;
     }
 
     public void setImageUrl(String imageUrl) {
@@ -104,11 +102,11 @@ public class Sight {
         this.addressKz = addressKz;
     }
 
-    public Region getPaternId() {
+    public City getPaternId() {
         return paternId;
     }
 
-    public void setPaternId(Region paternId) {
+    public void setPaternId(City paternId) {
         this.paternId = paternId;
     }
 
@@ -144,11 +142,8 @@ public class Sight {
         this.payment = payment;
     }
     public enum Category{
-        REST_ZONE(R.string.categoryItem7),
-        SANATORIUM(R.string.categoryItem8),
-        HISTORICAL_OBJECTS(R.string.categoryItem5),
-        HOTEL(R.string.categoryItem1),MUSEI(R.string.categoryItem3),RESTORAN(R.string.categoryItem2);
-        ;
+        HOTEL(R.string.categoryItem1),
+        MUSEI(R.string.categoryItem3);
 
         private String value;
         private int resId;

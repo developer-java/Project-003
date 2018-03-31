@@ -11,7 +11,7 @@ public class Region {
     private Long countSight;
 
     public String getImageUrl() {
-        return Util._API_DOWNLOAD_IMAGE_URL +"type=region&id="+getId();
+        return Util._API_DOWNLOAD_IMAGE_URL +"name="+imageUrl;
     }
 
     public void setImageUrl(String imageUrl) {

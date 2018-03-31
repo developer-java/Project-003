@@ -3,8 +3,17 @@ package com.example.hp.dip.model;
 public class Coment {
     private Long id;
     private Long sightId;
+    private Long sightcId;
     private String message;
     private String date;
+
+    public Long getSightcId() {
+        return sightcId;
+    }
+
+    public void setSightcId(Long sightcId) {
+        this.sightcId = sightcId;
+    }
 
     public Long getId() {
         return id;

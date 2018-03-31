@@ -43,9 +43,6 @@ public class SightAdapter extends RecyclerView.Adapter<SightAdapter.RecyclerView
     public void onBindViewHolder(RecyclerViewHolder viewHolder, int i) {
         final Sight sight = sights[i];
         viewHolder.title.setText(Util.getLangIsRu() ? sight.getValueRu() : sight.getValueKz());
-        if(isAll){
-            viewHolder.region.setText(Util.getLangIsRu() ? sight.getRegion().getValueRu() : sight.getValueKz());
-        }
         new ImageLoaderForView(viewHolder.image).execute(sight.getImageUrl());
     }
 

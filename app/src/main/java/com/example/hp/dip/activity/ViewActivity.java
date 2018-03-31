@@ -14,11 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TableRow;
 import android.widget.TextView;
 import com.example.hp.dip.R;
 import com.example.hp.dip.adapter.ComentAdapter;
 import com.example.hp.dip.model.Coment;
 import com.example.hp.dip.model.Sight;
+import com.example.hp.dip.model.SightC;
 import com.example.hp.dip.task.ImageLoaderForView;
 import com.example.hp.dip.util.Util;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -46,9 +48,7 @@ public class ViewActivity extends ActionBarActivity {
     private Sight selectedSight;
     private TextView title, desc, ratting, isPayment, price, contanct, workTime, address;
     private ImageView image;
-    private EditText editText;
-    private RecyclerView recyclerView;
-    private Coment[] coments;
+    private boolean isC = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,12 +61,13 @@ public class ViewActivity extends ActionBarActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-        if(getIntent().getBooleanExtra(ALL, false)){
+        if(getIntent().getStringExtra(ALL).equals("2")){
             selectedSight = SightAllActivity.sights[getIntent().getIntExtra(ID,0)];
-        }else{
+            toolbar.setTitle(selectedSight.getValueRu());
+        }else if(getIntent().getStringExtra(ALL).equals("3")){
             selectedSight = SightActivity.sights[getIntent().getIntExtra(ID,0)];
+            toolbar.setTitle(selectedSight.getValueRu());
         }
-        toolbar.setTitle(selectedSight.getValueRu());
         title = (TextView)findViewById(R.id.viewTitle);
         address = (TextView)findViewById(R.id.viewAddress);
         desc = (TextView)findViewById(R.id.viewDesc);
@@ -76,13 +77,6 @@ public class ViewActivity extends ActionBarActivity {
         ratting = (TextView)findViewById(R.id.viewRatting);
         workTime = (TextView)findViewById(R.id.viewWorkTime);
         image = (ImageView) findViewById(R.id.viewImage);
-        editText = (EditText)findViewById(R.id.message);
-        recyclerView = (RecyclerView) findViewById(R.id.comentRecycler);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(llm);
-        recyclerView.setHasFixedSize(false);
-        recyclerView.setNestedScrollingEnabled(true);
-
         title.setText(Util.getLangIsRu() ? selectedSight.getValueRu() : selectedSight.getValueKz());
         address.setText(Util.getLangIsRu() ? selectedSight.getAddressRu() : selectedSight.getAddressKz());
         desc.setText("\t\t\t"+(Util.getLangIsRu()?selectedSight.getDescriptionRu() : selectedSight.getDescriptionKz()));
@@ -91,69 +85,7 @@ public class ViewActivity extends ActionBarActivity {
         price.setText(selectedSight.isPayment() ? selectedSight.getPrice()+" KZT" : "0 KZT");
         ratting.setText(selectedSight.getRatting()+"/10");
         workTime.setText(selectedSight.getWorkTime());
-        listRefresh(recyclerView);
         new ImageLoaderForView(image).execute(selectedSight.getImageUrl());
-        new GetComent(recyclerView).execute(selectedSight.getId());
-    }
-
-    public void listRefresh(RecyclerView recyclerView){
-
-    }
-
-    public void addComent(View view) throws ExecutionException, InterruptedException {
-        if(!editText.getText().toString().isEmpty()){
-            Coment coment = new Coment();
-            coment.setDate(new SimpleDateFormat("dd.mm.yyyy hh:mm").format(new Date()));
-            coment.setMessage(editText.getText().toString());
-            coment.setSightId(selectedSight.getId());
-            new SendComent(recyclerView).execute(coment);
-            editText.setText("");
-        }
-    }
-
-
-    public class SendComent extends AsyncTask<Coment, Void, Coment[]> {
-        private RecyclerView recyclerView;
-
-        public SendComent(RecyclerView recyclerView) {
-            this.recyclerView = recyclerView;
-        }
-
-        @Override
-        protected void onPostExecute(Coment[] coment) {
-            super.onPostExecute(coment);
-            recyclerView.setAdapter(new ComentAdapter(coment));
-        }
-
-        @Override
-        protected Coment[] doInBackground(Coment... coments) {
-            Coment c = coments[0];
-            RestTemplate restTemplate = new RestTemplate();
-            restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-            Coment[] coment = restTemplate.getForObject(Util._API_URL+"/dip/coment/"+c.getSightId()+"/"+c.getMessage()+"/"+c.getDate()+"/",Coment[].class);
-            return coment;
-        }
-    }
-    public class GetComent extends AsyncTask<Long, Void, Coment[]> {
-        private RecyclerView recyclerView;
-
-        public GetComent(RecyclerView recyclerView) {
-            this.recyclerView = recyclerView;
-        }
-
-        @Override
-        protected void onPostExecute(Coment[] coment) {
-            super.onPostExecute(coment);
-            recyclerView.setAdapter(new ComentAdapter(coment));
-        }
-
-        @Override
-        protected Coment[] doInBackground(Long... params) {
-            RestTemplate restTemplate = new RestTemplate();
-            restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-            Coment[] coment = restTemplate.getForObject(Util._API_URL+"/dip/coment/"+params[0],Coment[].class);
-            return coment;
-        }
     }
 
     @Override

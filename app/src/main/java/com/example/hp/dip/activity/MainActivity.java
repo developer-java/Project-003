@@ -74,8 +74,9 @@ public class MainActivity extends AppCompatActivity {
             recyclerView.addOnItemTouchListener(
                     new RecyclerClickListener(this, new RecyclerClickListener.OnItemClickListener() {
                         @Override public void onItemClick(View view, int position) {
-                            Intent intent = new Intent(MainActivity.this, SightActivity.class);
-                            intent.putExtra(SightActivity.ID, position);
+                            Intent intent = new Intent(MainActivity.this, Selector.class);
+                            intent.putExtra(Selector.ID, position);
+                            Util.selectedRegion = responce[position];
                             ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                                     MainActivity.this,
                                     new Pair<View, String>(view.findViewById(R.id.list_circle),
@@ -122,58 +123,28 @@ public class MainActivity extends AppCompatActivity {
                                 .withTextColor(Color.WHITE),
                         new SecondaryDrawerItem()
                                 .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
-                                .withName(categories[0].getResId())
+                                .withName(R.string.view_all)
                                 .withIdentifier(2)
                                 .withBadgeTextColor(Color.parseColor(color))
                                 .withTextColor(Color.WHITE),
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem()
                                 .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
-                                .withName(categories[1].getResId())
+                                .withName(categories[0].getResId())
                                 .withIdentifier(3)
                                 .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
                                 .withBadgeTextColor(Color.parseColor(color))
                                 .withTextColor(Color.WHITE),
                         new SecondaryDrawerItem()
-                                .withName(categories[2].getResId())
+                                .withName(categories[1].getResId())
                                 .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
                                 .withIdentifier(4)
                                 .withBadgeTextColor(Color.parseColor(color))
                                 .withTextColor(Color.WHITE),
                         new SecondaryDrawerItem()
+                                .withName(categories[2].getResId())
                                 .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
-                                .withName(categories[3].getResId())
                                 .withIdentifier(5)
-                                .withBadgeTextColor(Color.parseColor(color))
-                                .withTextColor(Color.WHITE),
-                        new SecondaryDrawerItem()
-                                .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
-                                .withName(categories[4].getResId())
-                                .withIdentifier(6)
-                                .withBadgeTextColor(Color.parseColor(color))
-                                .withTextColor(Color.WHITE),
-                        new SecondaryDrawerItem()
-                                .withName(categories[5].getResId())
-                                .withIdentifier(7)
-                                .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
-                                .withBadgeTextColor(Color.parseColor(color))
-                                .withTextColor(Color.WHITE),
-                        new SecondaryDrawerItem()
-                                .withName(categories[6].getResId())
-                                .withIdentifier(8)
-                                .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
-                                .withBadgeTextColor(Color.parseColor(color))
-                                .withTextColor(Color.WHITE),
-                        new SecondaryDrawerItem()
-                                .withName(categories[7].getResId())
-                                .withIdentifier(9)
-                                .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
-                                .withBadgeTextColor(Color.parseColor(color))
-                                .withTextColor(Color.WHITE),
-                        new SecondaryDrawerItem()
-                                .withName(categories[8].getResId())
-                                .withIdentifier(10)
-                                .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
                                 .withBadgeTextColor(Color.parseColor(color))
                                 .withTextColor(Color.WHITE),
                         new DividerDrawerItem(),
@@ -181,16 +152,16 @@ public class MainActivity extends AppCompatActivity {
                                 .withName(R.string.contact)
                                 .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
                                 .withTextColor(Color.WHITE)
-                                .withIdentifier(11),
+                                .withIdentifier(6),
                         new SecondaryDrawerItem()
                                 .withName(R.string.about)
                                 .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
                                 .withTextColor(Color.WHITE)
-                                .withIdentifier(12),
+                                .withIdentifier(7),
                         new SecondaryDrawerItem()
                                 .withTextColor(Color.WHITE)
                                 .withName(R.string.exit)
-                                .withIdentifier(13)
+                                .withIdentifier(8)
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -198,40 +169,26 @@ public class MainActivity extends AppCompatActivity {
                         Util.DRAW_SELECTED_ITEM = position;
                         switch (position){
                             case 0:{
+
                             }case 1:{
-                                goToActivity(SightAllActivity.class,categories[0]);
+                                goToActivity(SightAllActivity.class,"ALL");
                                 break;
                             }case 3:{
+                                goToActivity(SightAllActivity.class, categories[0]);
+                                break;
+                            }case 4: {
                                 goToActivity(SightAllActivity.class, categories[1]);
                                 break;
-                            }case 4:{
+                            }case 5: {
                                 goToActivity(SightAllActivity.class, categories[2]);
                                 break;
-                            }case 5:{
-                                goToActivity(SightAllActivity.class,categories[3]);
-                                break;
-                            }case 6:{
-                                goToActivity(SightAllActivity.class,categories[4]);
-                                break;
                             }case 7:{
-                                goToActivity(SightAllActivity.class,categories[5]);
-                                break;
-                            }case 8:{
-                                goToActivity(SightAllActivity.class,categories[6]);
-                                break;
-                            }case 9:{
-                                goToActivity(SightAllActivity.class,categories[7]);
-                                break;
-                            }case 10:{
-                                goToActivity(SightAllActivity.class,categories[8]);
-                                break;
-                            }case 12:{
                                 goToActivity(Contacts.class);
                                 break;
-                            }case 13:{
+                            }case 8:{
                                 goToActivity(About.class);
                                 break;
-                            }case 14:{
+                            }case 9:{
                                 System.exit(0);
                                 break;
                             }
@@ -250,6 +207,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,c);
         for(int i=0;i<params.length;i++){
             intent.putExtra("param"+i,params[i].toString());
+        }
+        startActivity(intent);
+        finish();
+    }
+    public void goToActivity(Class c, String ...params){
+        Intent intent = new Intent(this,c);
+        for(int i=0;i<params.length;i++){
+            intent.putExtra("param"+i,params[i]);
         }
         startActivity(intent);
         finish();

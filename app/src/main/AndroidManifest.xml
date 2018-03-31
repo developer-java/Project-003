@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
             android:allowBackup="true"
             android:icon="@drawable/icon"
@@ -20,8 +21,8 @@
             </intent-filter>
         </activity>
         <activity
-                android:theme="@style/AppTheme.NoActionBar"
-                android:name=".activity.ViewActivity">
+                android:name=".activity.ViewActivity"
+                android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
                 android:name=".activity.SightActivity"
@@ -37,11 +38,29 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:theme="@style/noActionBar" android:name=".activity.SightAllActivity">
+        <activity
+                android:name=".activity.SightAllActivity"
+                android:theme="@style/noActionBar">
         </activity>
-        <activity android:theme="@style/noActionBar" android:name=".activity.About">
+        <activity
+                android:name=".activity.About"
+                android:theme="@style/noActionBar">
         </activity>
-        <activity android:theme="@style/noActionBar" android:name=".activity.Contacts">
+        <activity
+                android:name=".activity.Contacts"
+                android:theme="@style/noActionBar">
+        </activity>
+        <activity
+                android:name=".activity.Selector"
+                android:theme="@style/noActionBar">
+        </activity>
+        <activity
+                android:name=".activity.SelectCity"
+                android:theme="@style/noActionBar">
+        </activity>
+        <activity
+                android:theme="@style/noActionBar"
+                android:name=".activity.SelectCategoryByCity">
         </activity>
     </application>
 

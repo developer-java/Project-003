@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.example.hp.dip.R;
+import com.example.hp.dip.model.Region;
 import com.example.hp.dip.model.Sight;
 import com.example.hp.dip.util.Util;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -124,7 +125,7 @@ public class Splash extends AppCompatActivity {
                     publishProgress(2);
                     RestTemplate restTemplate = new RestTemplate();
                     restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                    restTemplate.getForObject(Util._API_SIGHT_LIST_URL,Sight[].class);
+                    restTemplate.getForObject(Util._API_REGION_LIST_URL,Region [].class);
                     publishProgress(3);
                     status = 200;
                 }else {

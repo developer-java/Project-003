@@ -55,7 +55,7 @@ public class SightAllActivity extends AppCompatActivity {
                         public void onItemClick(View view, int position) {
                             Intent intent = new Intent(SightAllActivity.this, ViewActivity.class);
                             intent.putExtra(ViewActivity.ID, position); // тут переходим в ViewActivity и передаем в параметре позицию выбранного элемента
-                            intent.putExtra(ViewActivity.ALL, true); // и логический да или нет, если да то это означает что мы пришли из SightAllActivity а тут в коде всегда отправляет да, если не понятно посмотри кот ViewActivity.java 53 строка
+                            intent.putExtra(ViewActivity.ALL, "2"); // и логический да или нет, если да то это означает что мы пришли из SightAllActivity а тут в коде всегда отправляет да, если не понятно посмотри кот ViewActivity.java 53 строка
                             ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                                     SightAllActivity.this,
                                     new Pair<View, String>(view.findViewById(R.id.s_list_image),
@@ -78,17 +78,12 @@ public class SightAllActivity extends AppCompatActivity {
         String color = Util.getStaticColor();
         Toolbar toolbar = (Toolbar)findViewById(R.id.sightAllToolbar);
         toolbar.setBackgroundColor(Color.parseColor(color));
-        if(param0!=null){
-            Sight.Category category = Sight.Category.valueOf(param0);
-            toolbar.setTitle(category.getResId());
-        }else{
-            toolbar.setTitle(R.string.app_name);
-        }
-
+        toolbar.setTitle(R.string.select_region);
         toolbar.setTitleTextColor(Color.WHITE);
         if(toolbar!=null){
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         Drawer.Result drawer = new Drawer()
                 .withActivity(this)
@@ -97,70 +92,53 @@ public class SightAllActivity extends AppCompatActivity {
                 .withActionBarDrawerToggleAnimated(true)
                 .withSliderBackgroundColor(Color.parseColor(color))
                 .addDrawerItems(
-                        new PrimaryDrawerItem()
+                        new SecondaryDrawerItem()
+                                .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
                                 .withName(R.string.view_region)
                                 .withIdentifier(1)
                                 .withBadgeTextColor(Color.parseColor(color))
                                 .withTextColor(Color.WHITE),
                         new SecondaryDrawerItem()
-                                .withName(categories[0].getResId())
-                                .withIdentifier(3)
+                                .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
+                                .withName(R.string.view_all)
+                                .withIdentifier(2)
                                 .withBadgeTextColor(Color.parseColor(color))
                                 .withTextColor(Color.WHITE),
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem()
+                                .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
+                                .withName(categories[0].getResId())
+                                .withIdentifier(3)
+                                .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
+                                .withBadgeTextColor(Color.parseColor(color))
+                                .withTextColor(Color.WHITE),
+                        new SecondaryDrawerItem()
                                 .withName(categories[1].getResId())
+                                .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
                                 .withIdentifier(4)
                                 .withBadgeTextColor(Color.parseColor(color))
                                 .withTextColor(Color.WHITE),
                         new SecondaryDrawerItem()
                                 .withName(categories[2].getResId())
+                                .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
                                 .withIdentifier(5)
-                                .withBadgeTextColor(Color.parseColor(color))
-                                .withTextColor(Color.WHITE),
-                        new SecondaryDrawerItem()
-                                .withName(categories[3].getResId())
-                                .withIdentifier(6)
-                                .withBadgeTextColor(Color.parseColor(color))
-                                .withTextColor(Color.WHITE),
-                        new SecondaryDrawerItem()
-                                .withName(categories[4].getResId())
-                                .withIdentifier(7)
-                                .withBadgeTextColor(Color.parseColor(color))
-                                .withTextColor(Color.WHITE),
-                        new SecondaryDrawerItem()
-                                .withName(categories[5].getResId())
-                                .withIdentifier(8)
-                                .withBadgeTextColor(Color.parseColor(color))
-                                .withTextColor(Color.WHITE),
-                        new SecondaryDrawerItem()
-                                .withName(categories[6].getResId())
-                                .withIdentifier(9)
-                                .withBadgeTextColor(Color.parseColor(color))
-                                .withTextColor(Color.WHITE),
-                        new SecondaryDrawerItem()
-                                .withName(categories[7].getResId())
-                                .withIdentifier(10)
-                                .withBadgeTextColor(Color.parseColor(color))
-                                .withTextColor(Color.WHITE),
-                        new SecondaryDrawerItem()
-                                .withName(categories[8].getResId())
-                                .withIdentifier(11)
                                 .withBadgeTextColor(Color.parseColor(color))
                                 .withTextColor(Color.WHITE),
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem()
                                 .withName(R.string.contact)
+                                .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
                                 .withTextColor(Color.WHITE)
-                                .withIdentifier(12),
+                                .withIdentifier(6),
                         new SecondaryDrawerItem()
                                 .withName(R.string.about)
+                                .withSelectedTextColor(Color.parseColor(Util.getStaticColor()))
                                 .withTextColor(Color.WHITE)
-                                .withIdentifier(13),
+                                .withIdentifier(7),
                         new SecondaryDrawerItem()
                                 .withTextColor(Color.WHITE)
                                 .withName(R.string.exit)
-                                .withIdentifier(14)
+                                .withIdentifier(8)
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -168,41 +146,27 @@ public class SightAllActivity extends AppCompatActivity {
                         Util.DRAW_SELECTED_ITEM = position;
                         switch (position){
                             case 0:{
-
+                                goToActivity(MainActivity.class);
+                                break;
                             }case 1:{
-                                goToActivity(SightAllActivity.class,categories[0]);
+                                goToActivity(SightAllActivity.class,"ALL");
                                 break;
                             }case 3:{
+                                goToActivity(SightAllActivity.class, categories[0]);
+                                break;
+                            }case 4: {
                                 goToActivity(SightAllActivity.class, categories[1]);
                                 break;
-                            }case 4:{
+                            }case 5: {
                                 goToActivity(SightAllActivity.class, categories[2]);
                                 break;
-                            }case 5:{
-                                goToActivity(SightAllActivity.class,categories[3]);
-                                break;
-                            }case 6:{
-                                goToActivity(SightAllActivity.class,categories[4]);
-                                break;
                             }case 7:{
-                                goToActivity(SightAllActivity.class,categories[5]);
-                                break;
-                            }case 8:{
-                                goToActivity(SightAllActivity.class,categories[6]);
-                                break;
-                            }case 9:{
-                                goToActivity(SightAllActivity.class,categories[7]);
-                                break;
-                            }case 10:{
-                                goToActivity(SightAllActivity.class,categories[8]);
-                                break;
-                            }case 12:{
                                 goToActivity(Contacts.class);
                                 break;
-                            }case 13:{
+                            }case 8:{
                                 goToActivity(About.class);
                                 break;
-                            }case 14:{
+                            }case 9:{
                                 System.exit(0);
                                 break;
                             }
@@ -223,5 +187,14 @@ public class SightAllActivity extends AppCompatActivity {
             intent.putExtra("param"+i,params[i].toString());
         }
         startActivity(intent);
+        finish();
+    }
+    public void goToActivity(Class c, String ...params){
+        Intent intent = new Intent(this,c);
+        for(int i=0;i<params.length;i++){
+            intent.putExtra("param"+i,params[i]);
+        }
+        startActivity(intent);
+        finish();
     }
 }

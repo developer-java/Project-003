@@ -1,4 +1,7 @@
 package com.example.hp.dip.util;
+import com.example.hp.dip.model.City;
+import com.example.hp.dip.model.Region;
+
 import java.util.Locale;
 import java.util.Random;
 
@@ -11,8 +14,12 @@ public class Util {
     public static final String _API_DOWNLOAD_IMAGE_URL = _API_URL + "/download?";
     public static final String _API_REGION_LIST_URL = _API_URL + "/dip/regions";
     public static final String _API_SIGHT_LIST_URL = _API_URL + "/dip/sight/";
+    public static final String _API_SIGHTC_LIST_URL = _API_URL + "/dip/sightc/";
     public static final String _API_SIGHT_CATEGORY_URL = _API_URL + "/dip/sight/category/";
+    public static final String _API_CITY = _API_URL + "/dip/city/";
     public static int DRAW_SELECTED_ITEM=0;
+    public static Region selectedRegion;
+    public static City selectedCity;
 
     public static String getRandomColor(){
         int pos = (new Random().nextInt(12));
